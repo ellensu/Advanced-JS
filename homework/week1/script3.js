@@ -1,38 +1,34 @@
 console.log("javascript working!");
+
  // Just to test. 
 $(document).ready(function() {
-  loadJSON();
-
     $("#refresh-button").click(function() {
-      //$("#list").empty();
-      loadJSON();
-
+      $("#list").empty();
+      console.log("refreshed!");
+      window.location.reload();
       });
-
-var loadJSON = function() {
-  $.get("http://www.reddit.com/hot.json", function(response) {
+  $.get("https://api.whitehouse.gov/v1/petitions.json?limit=3&offset=0&createdBefore=1352924535", function(response) {
     // If you don't understand line 6, you may want to read up
     // on Javascript objects, in the slides or internet. 
-    $("#list").empty(); //empty the list after json is called
-    var stories = response.data.children;
-    for(var i in stories) {
-      story = stories[i].data;
-      var newStory = $("<li><a></a></li>")
+    var petition = response.data.children;
+    for(var i in petitions) {
+      form = petitions[i].results;
+      var title = $("<li><a></a></li>")
         .find("a")
-        .attr("href", "http://www.reddit.com/" + story.permalink)
-        .html(story.title)
+        .attr("href", petition.url)
+        .html(petition.title)
         .end();
-      var upVotes = $("<p>" + story.ups + " upvotes" + "</p>");
+      //var upVotes = $("<li>" + story.ups + " upvotes" + "</li>");
       // Your code here:
       // In the data in the Javascript object 'story',
       // find the title, permalink, and upvote count
       // Then create HTML elements with jQuery (like in line 9)
       // and append them to the #list element. 
-      //elem.append
-      $("#list").append(newStory,upVotes,"<br>");
+      $("#list").append(title,"<br>");
       // Look at the JS console in Chrome to see what story looks like
-      console.log(story);
+      console.log(petition);
+
+
     }
   })
 });
-}
