@@ -9,9 +9,10 @@ $(document).ready(function() {
   });
 
   $(window).mousemove(function(e) {
-   $("#follow-dot").css({"left": e.pageX + 'px', "top": e.pageY + 'px'});
-   console.log(e.pageX, e.pageY);
-
+   setTimeout(function() {
+    $("#follow-dot").css({"left": e.pageX + 'px', "top": e.pageY + 'px'});
+    console.log(e.pageX, e.pageY);
+  }, 300);
     // Ex. 3: My Shadow code here
 
     // You can change the css of an element with the .css function—
