@@ -11,7 +11,7 @@ $(document).ready(function() {
   $(window).mousemove(function(e) {
    setTimeout(function() {
     $("#follow-dot").css({"left": e.pageX + 'px', "top": e.pageY + 'px'});
-    console.log(e.pageX, e.pageY);
+    //console.log(e.pageX, e.pageY);
   }, 300);
     // Ex. 3: My Shadow code here
 
@@ -95,14 +95,18 @@ var getFB = function() {
     method: "get", // Using GET
     url: "https://graph.facebook.com/me", // Get my own info
     data: {
-      fields: "...", // What goes here? 
+      "id": "10154615878105720", 
+      "name": "Ellen Su",
+       // What goes here? 
       // Access token obtained at https://developers.facebook.com/tools/explorer
       // Note that it expires after a while, so you occasionally need to go back
       //   and get another one. 
-      access_token: "CAACEdEose0cBAK0ILXnxSN8TSvCqvKtFroh7vzMzB7tZBL00z9hneo0g1AusC1NkUtVnBo8pW51GdKn26YoNFqtLeuBc849SusuUzxZCxyDvB2gjFI2iZCmpeYngbvajE610H7R8buek4ZBBLynQ2ARPiHndjQrfLCBnhyqZAAtuJp7L0ubaijFkgyg7p1GH9h8UA68Kj1ZBXVaCQ1p0xC"
+      access_token: "CAACEdEose0cBAMMi0CjUdKn3XJObbN1TJaDLKjROmW67IMl6po3ZBPFddeNKKAZCUVcly1q5px79hLhgZC5pr4EE3yM7E203o6lHxae9hzRWLQ7g9kKZB8dlaYtKrECFkb2XNmeI6mcDEZCwzgble8pVy6WvpAGRmZCZCfOZC4wMIxrPfg9ZCfTrgRze5Qjvk8CNujYbZC2NMvlLFTyiI6zRL1"
     },
     success: function(response) {
       console.log(response);
+      $("#facebookinfo").append("<p>" + response.name + ", " + response.id + "</p>");
+
       // Write code to display the name and userID on the page here.
       // If you got the profile picture, make it show up in an <img> tag
     }, 
