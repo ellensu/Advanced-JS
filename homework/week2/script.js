@@ -93,7 +93,7 @@ var loadReddit = function() {
 var getFB = function() {
   $.ajax({
     method: "get", // Using GET
-    url: "https://graph.facebook.com/me", // Get my own info
+    url: "https://graph.facebook.com/me?fields=id,name,link,picture", // Get my own info
     data: {
       "id": "10154615878105720", 
       "name": "Ellen Su",
@@ -105,7 +105,7 @@ var getFB = function() {
     },
     success: function(response) {
       console.log(response);
-      $("#facebookinfo").append("<p>" + response.name + ", " + response.id + "</p>");
+      $("#facebookinfo").append("<p><a href='" + response.link + "'>" + response.name + ", " + response.id + "</a></p>");
 
       // Write code to display the name and userID on the page here.
       // If you got the profile picture, make it show up in an <img> tag
