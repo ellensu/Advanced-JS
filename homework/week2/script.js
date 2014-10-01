@@ -10,7 +10,7 @@ $(document).ready(function() {
 
   $(window).mousemove(function(e) {
    setTimeout(function() {
-    $("#follow-dot").css({"left": e.pageX + 'px', "top": e.pageY + 'px'});
+    $("#follow-dot").css({"left": e.pageX, "top": e.pageY});
     //console.log(e.pageX, e.pageY);
   }, 300);
     // Ex. 3: My Shadow code here
@@ -95,13 +95,12 @@ var getFB = function() {
     method: "get", // Using GET
     url: "https://graph.facebook.com/me?fields=id,name,link,picture", // Get my own info
     data: {
-      "id": "10154615878105720", 
-      "name": "Ellen Su",
+      fields: "name,picture",
        // What goes here? 
       // Access token obtained at https://developers.facebook.com/tools/explorer
       // Note that it expires after a while, so you occasionally need to go back
       //   and get another one. 
-      access_token: "CAACEdEose0cBAMMi0CjUdKn3XJObbN1TJaDLKjROmW67IMl6po3ZBPFddeNKKAZCUVcly1q5px79hLhgZC5pr4EE3yM7E203o6lHxae9hzRWLQ7g9kKZB8dlaYtKrECFkb2XNmeI6mcDEZCwzgble8pVy6WvpAGRmZCZCfOZC4wMIxrPfg9ZCfTrgRze5Qjvk8CNujYbZC2NMvlLFTyiI6zRL1"
+      access_token: "CAACEdEose0cBAH9RgtI5PBeizaQElS0pY9OWz2RjBMRy63Y119Ld1hMhtsrui9nucE2tPOYCRHldDZAucZBqIWakS2bogIZA7cqiooalI8YZBFUCV0Nx5vkBOuMiaibCJBzE8x8IEURAYIlDoXmdJnJNDLLI0mMACqPebeTiZBRxZBO3tOxWMCetEZBAFFCrZAxWzpBHTjkj7ZB4lLuEDf6H7"
     },
     success: function(response) {
       console.log(response);

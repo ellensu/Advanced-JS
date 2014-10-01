@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Todo</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	<script src="./todo.js"></script>
+	<style>
+	.doneLink {
+		color: blue;
+	}
+	.done {
+		text-decoration: strikethrough
+	}
+</head>
+
+<body ng-app="Todo">
+	<div ng-controller="TodoCtrl">
+		<ul>
+			<li ng-repeat="item in todoList">
+				<span ng-class="{done: item.done}">{{item.text}}</span>
+				<span class="doneLink" ng-click="completeTodo($index)" ng-hide="item.done">done!</span>
+				<span class="doneLink" ng-click="completeTodo($index)" ng-show="item.done">undo</span>
+			</li>
+		</ul>
+		<form ng-sumbmit="newTodo()">
+			<input type="text" ng-model="newActivity.text" required>	
+			<input type="submit" value="Add">		
+		</form>
+
+
+	</div>
+
+</body>
+</html>

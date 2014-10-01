@@ -1,0 +1,15 @@
+Week 3 notes
+
+Prepend puts tags around!
+
+get a permanent token by registering your app!
+
+-----------------
+
+Angular JS is a framework --> has own methods defined that you can call upon
+
+Library is a collection of functions
+Framework is a way of building something 
+
+common tasks become easy!
+
