@@ -13,3 +13,159 @@ Framework is a way of building something
 
 common tasks become easy!
 
+	Leverages AJAX and two-way data binding to easily create single-page apps
+
+With rails, you send request to server and sends it back
+
+Single page app doesn't access server between page transitions
+Server only gets pinged when data is requested
+
+Router--controller-view-model for the front-end
+
+
+Angular is HARD!
+
+Easy to initially pick up, but then gets very difficult
+	documentation is shaky
+	lots of new concepts
+
+Scopes, data binding, digest cycle, HTTP promises
+
+
+3 problems that Angular solves:
+	- keeps frontend up to date
+		usual cycles:
+			- get data
+			- show data to user
+			- get data from user
+			- send user data
+	- In Angular
+		- Get: $http.get(...) (does everything automatically)
+		- Send: $http.post(...)
+		- Don't need to get data
+	- Freedom!
+		- no more callbacks
+		- templates define where data goes
+		- angular directives define user interactions
+
+	- Thinking about data --> help people visualize data in models
+
+	Angular has resources
+	and code organization!
+
+	Code is written based on functionality, not by page --> loaded using dependency injection
+
+only the code you need gets run
+
+
+
+Key concepts----------------
+Angular Zen
+	- App logic should be separate from DOM
+	- Testing code is just as important as writing code
+	- Client and server side code should be separate
+	- Frameworks should guide programmers through journey (UI, logic, testing)
+	- Make common tasks trivial and difficult tasks possible
+
+
+----------------------
+1. NTML defines reactivity (reactions happen in the html document)
+	- using directives
+	- callbacks
+
+2. All logic and function goes in controllers (what happens when you click/hover)
+	- connected via scope
+
+3. Data made visible with templates (this data is mapped)
+	- data in DOM is automatically updated
+	- data binding
+
+
+ng-app tells application that we're using angular
+
+{{ }} is templating (valuable myText is in the curly braces)
+
+You can have multiple angular apps, you can only run angular on a small part, etc
+
+
+ng-model --> binds the value of this input to the variable myText (Whatever input you put in turns into a variable)
+
+{{}} a template directive that injects the data into the DOM --> screen automatically updates and is bound to value of myText (screen automatically updates)
+
+{{insert variable}}  Whatever variable you imput is updated here
+
+
+Use a controller! to do something more interesting than just display 
+
+
+Name your angular app! ng-app="hello"
+
+Controller = ng-controller
+
+ng-app sets app
+ng-model sets value of input
+ng-controller
+
+
+Javascript --> call angular, set up your module
+
+var helloAngular = angular.module("HelloAngular");
+
+Has to match the name you set in ng-app
+
+
+helloAngular.controller(<controllername>, function)
+
+HAVE TO DECLARE YOUR DEPENDENCIES THE FIRST TIME!!!
+
+
+Scope manages everything in your DOM and your controller!
+
+Everything in the dom is in the scope
+
+when you want to interact between angular controller and DOM, you need to call it through SCOPE!!!!
+
+can change your input too
+
+
+
+Controller only applies to div and the rest of its children, not to the rest of the body
+
+ng-click calls a function
+
+All controllers usually inject scope
+
+Scopes help manage variables in the DOM (call everything and define everything using scope)
+
+Usually created for you! with directives (controler, repeat, include, etc)
+	only attached to variables in that directive
+
+If you're outside the scope, things will not work!!
+
+no error! fails silently when something is outside the scope
+
+
+ng-repeat="item in <var>"
+
+item is Angular's var(i)
+'in' is for each item in <var>
+
+
+Named app has to be called by your .js file
+
+install angular package for sublime
+
+ngrepeat expects more than one item, if you have dupes it throws an error
+
+
+After you add activity
+
+
+Bind it to the property of a pre-created property, don't create new fields
+
+Bind the properties already
+
+
+Children scope know all of the parents scopes
+
+ng-if is the same as ng-show (has display none)
